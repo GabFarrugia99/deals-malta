@@ -2,7 +2,7 @@ name: Daily Price Scrape
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Run daily at 8am Malta time
+    - cron: '0 6 * * *'  # Run daily at 6am Malta time
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
@@ -23,16 +23,13 @@ jobs:
     - name: Install Playwright browsers
       run: npx playwright install firefox
       
-    - name: Run scraper
-      run: node scraper_v3.js
-      
-    - name: Build site
-      run: node build-site.js
+    - name: Run full scraper
+      run: node scraper_full.js
       
     - name: Commit and push changes
       run: |
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         git add prices.json index.html
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update prices: $(date)"
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update prices: $(date -u '+%Y-%m-%d %H:%M UTC')"
         git push
