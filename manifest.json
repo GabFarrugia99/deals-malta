@@ -1,0 +1,16 @@
+{
+  "name": "Deals Malta",
+  "short_name": "DealsMT",
+  "description": "Compare electronics prices across Malta retailers",
+  "start_url": "/deals-malta/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#0f0f23",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
