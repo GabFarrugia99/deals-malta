@@ -23,13 +23,13 @@ jobs:
     - name: Install Playwright browsers
       run: npx playwright install firefox
       
-    - name: Run full scraper
-      run: node scraper_full.js
+    - name: Run scraper with images
+      run: node scraper_images.js
       
     - name: Commit and push changes
       run: |
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
-        git add prices.json index.html
+        git add prices.json index.html images/
         git diff --quiet && git diff --staged --quiet || git commit -m "Update prices: $(date -u '+%Y-%m-%d %H:%M UTC')"
         git push

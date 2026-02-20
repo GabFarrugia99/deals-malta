@@ -39,6 +39,7 @@ function buildSite() {
         <div class="products">
           ${items.map((p, i) => `
             <div class="product ${i === 0 ? 'best-deal' : ''}">
+              ${p.imageLocal ? `<div class="product-image"><img src="${p.imageLocal}" alt="${escapeHtml(p.name)}" loading="lazy"></div>` : ''}
               <div class="product-info">
                 <div class="product-name">
                   ${escapeHtml(p.name)}
@@ -123,22 +124,38 @@ function buildSite() {
     .products { display: grid; gap: 12px; }
     .product { 
       background: rgba(255,255,255,0.03); 
-      padding: 20px; 
+      padding: 15px 20px; 
       border-radius: 12px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 15px;
       border: 1px solid rgba(255,255,255,0.05);
       transition: all 0.2s;
     }
     .product:hover { 
       background: rgba(255,255,255,0.06);
-      transform: translateX(5px);
       border-color: rgba(0,212,255,0.2);
     }
     .product.best-deal { border-color: rgba(0,255,136,0.3); }
     
-    .product-info { flex: 1; }
+    .product-image { 
+      width: 80px; 
+      height: 80px; 
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-image img { 
+      max-width: 100%; 
+      max-height: 100%; 
+      object-fit: contain;
+    }
+    
+    .product-info { flex: 1; min-width: 0; }
     .product-name { 
       font-size: 1.1rem; 
       font-weight: 600;
