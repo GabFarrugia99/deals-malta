@@ -4,6 +4,13 @@ screenshots/
 .DS_Store
 .openclaw/
 .pi/
+AGENTS.md
+BOOTSTRAP.md
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
 debug*.js
 scraper_*.js
 price_scraper.js
@@ -12,3 +19,4 @@ repo.json
 pages.json
 scan_debug.png
 iphone_page.png
+package-lock.json
