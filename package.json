@@ -1,0 +1,13 @@
+{
+  "name": "malta-price-tracker",
+  "version": "1.0.0",
+  "description": "Electronics price comparison for Malta retailers",
+  "main": "scraper.js",
+  "scripts": {
+    "scrape": "node scraper_v3.js",
+    "build": "node build-site.js"
+  },
+  "dependencies": {
+    "playwright": "^1.58.0"
+  }
+}
